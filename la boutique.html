@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>la boutique</title>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  
+}
+
+header {
+  background-color: #333;
+  color: #fff; 
+  padding: 20px;
+  height: auto;
+ position: fixed;
+  width: 100%;
+  top: 0;
+  
+}
+button{
+  
+    background-color: black;
+    color: aliceblue;
+    
+ 
+}
+
+ul {
+  list-style-type: none; /* Supprime les puces de la liste */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Permet de gérer le débordement des éléments */
+}
+
+li {
+  float: left; /* Aligne les éléments horizontalement */
+  margin-left: 250px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px; /* Espacement entre les éléments */
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111; /* Couleur de fond au survol */
+}
+h1{
+    text-align: center;
+}
+main {
+  padding: 20px;
+
+}
+.produits{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.produit {
+  width: 20%;
+  margin-bottom: 20px;
+  margin-right: 64px;
+  margin-left: 30px;
+}
+
+
+
+.produit img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.prix {
+  font-weight: bold;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+}
+@media only screen and (max-width: 600px) {
+  /* Pour les écrans inférieurs à 600px */
+  header {
+    height: auto;
+    position: static;
+  }
+  ul {
+    padding: 0;
+    text-align: center;
+  }
+  li {
+    float: none;
+    margin-left: 0;
+    display: inline-block;
+  }
+  nav ul {
+    flex-direction: row;
+    align-items: center ;
+    
+  }
+  .produits {
+    flex-direction: column;
+  }
+  .produit {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+    </style>
+    <script>
+      function ajouterAuPanier(article, prix, image) {
+        let panier = JSON.parse(localStorage.getItem('panier')) || [];
+        panier.push({ article: article, prix: prix, image: image });
+        localStorage.setItem('panier', JSON.stringify(panier));
+        alert(article + ' à ' + prix + 'dh a été ajouté au panier.');
+      }
+      </script>
+</head>
+<body>
+    <header>
+        <h1>DRESS ROOM</h1>
+        <nav>
+          <ul>
+            <li><a href="acceuil.html">Accueil</a></li>
+          <li><a href="la boutique.html">La boutique</a></li>
+          <li><a href="panier.html">Panier</a></li>
+          <li><a href="contacts.html">Contact</a></li> 
+          </ul>
+        </nav>
+      </header><br><br><br><br><br><br><br><br>
+    <h1>ROBES</h1>
+      <main>
+        <section class="produits">
+          <article class="produit">
+            <div>
+              <img src="robe1.jpg" alt="Article 1" >
+              <p><strong>Article 1</strong> - 250dh <button onclick="ajouterAuPanier('Article 1', 250, 'robe1.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article>
+          <article class="produit">
+            <div>
+              <img src="robe2.jpg" alt="Article 2" >
+              <p><strong>Article 2</strong> - 250dh <button onclick="ajouterAuPanier('Article 2', 250, 'robe2.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article><article class="produit">
+            <div>
+              <img src="robe3.jpg" alt="Article 3" >
+              <p><strong>Article 3</strong> - 200dh <button onclick="ajouterAuPanier('Article 3', 250, 'robe3.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article><article class="produit">
+            <div>
+              <img src="robe4.jpg" alt="Article 4" >
+              <p><strong>Article 4</strong> - 250dh <button onclick="ajouterAuPanier('Article 4', 250, 'robe4.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article><article class="produit">
+            <div>
+              <img src="robe5.jpg" alt="Article 5" >
+              <p><strong>Article 5</strong> - 250dh <button onclick="ajouterAuPanier('Article 5', 250, 'robe5.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article>
+        </section>
+      </main>
+      <h1>ENSEMBLES</h1>
+      <main>
+        <section class="produits">
+          <article class="produit">
+            <div>
+              <img src="ens1.jpg" alt="Article 1" >
+              <p><strong>Article 1</strong> - 250dh <button onclick="ajouterAuPanier('Article 1', 250, 'ens1.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article>
+          <article class="produit">
+            <div>
+              <img src="ens2.jpg" alt="Article 2" >
+              <p><strong>Article 2</strong> - 250dh <button onclick="ajouterAuPanier('Article 2', 250, 'ens2.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article><article class="produit">
+            <div>
+              <img src="ens3.jpg" alt="Article 3" >
+              <p><strong>Article 3</strong> - 200dh <button onclick="ajouterAuPanier('Article 3', 250, 'ens3.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article><article class="produit">
+            <div>
+              <img src="ens4.jpg" alt="Article 4" >
+              <p><strong>Article 4</strong> - 250dh <button onclick="ajouterAuPanier('Article 4', 250, 'ens4.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article><article class="produit">
+            <div>
+              <img src="ens5.jpg" alt="Article 5" >
+              <p><strong>Article 5</strong> - 250dh <button onclick="ajouterAuPanier('Article 5', 250, 'ens5.jpg')">Ajouter au panier</button></p>
+            </div>
+          </article>
+        </section>
+      </main>
+    
+
+      <footer>
+        <p>&copy; 2024 DRESS ROOM une Boutique de Vêtements. Tous droits réservés.</p>
+      </footer>
+     
+</body>
+</html>

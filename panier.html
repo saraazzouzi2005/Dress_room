@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier</title>
+    <style>
+         body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  
+}
+       header {
+  background-color: #333;
+  color: #fff; 
+  padding: 20px;
+  height: 120px;
+ position: fixed;
+  width: 100%;
+  top: 0;
+  
+}
+h1{
+    text-align: center;
+}
+ul {
+  list-style-type: none; /* Supprime les puces de la liste */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Permet de gérer le débordement des éléments */
+}
+
+li {
+  float: left; /* Aligne les éléments horizontalement */
+  margin-left: 250px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px; /* Espacement entre les éléments */
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111; /* Couleur de fond au survol */
+}
+#prixTotal{
+    border: #111 solid;
+    width: 25%;
+}
+span{
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 30px;
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  bottom: 0;
+  position:fixed;
+  
+  width: 100%;
+}
+
+button{
+    background-color: black;
+    color: aliceblue;
+    width: 25%;
+}
+#listePanier  {
+  width:  80%;
+}
+#prixTotal{
+  width: 25%;
+}
+
+a{
+    display: block;
+  color: aliceblue;   
+}
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    position: static;
+  }
+  ul {
+    padding: 0;
+    text-align: center;
+  }
+  li {
+    float: none;
+    margin-left: 0;
+    display: inline-block;
+  }
+  footer{
+    position: relative;
+  }
+}
+@media only screen and (max-width: 600px) {
+  /* Pour les écrans inférieurs à 600px */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  #listePanier, #prixTotal {
+    width: 100%;
+    text-align: center;
+  }
+  button {
+    width: 25%;
+    margin-top: 10px;
+  }
+}
+
+    </style>
+    <script>
+        function afficherPanier() {
+          let panier = JSON.parse(localStorage.getItem('panier')) || [];
+          let listePanier = document.getElementById('listePanier');
+          let total = 0;
+          listePanier.innerHTML = ''; // Efface la liste actuelle
+          panier.forEach(function(item, index) {
+            let li = document.createElement('li');
+            li.innerHTML = `<img src="${item.image}" alt="${item.article}" width="100" height="100"> ${item.article} - ${item.prix}dh <button onclick="supprimerArticle(${index})">Supprimer</button>`;
+            listePanier.appendChild(li);
+            total += item.prix;
+          });
+        
+          // Afficher ou masquer les boutons de confirmation et de vidage en fonction du panier
+          let boutonConfirmer = document.getElementById('boutonConfirmer');
+          let boutonVider = document.getElementById('boutonVider');
+          if(panier.length > 0) {
+            boutonConfirmer.style.display = 'block';
+            boutonVider.style.display = 'block';
+          } else {
+            boutonConfirmer.style.display = 'none';
+            boutonVider.style.display = 'none';
+          }
+        
+          document.getElementById('prixTotal').textContent = `Total : ${total}dh`;
+        }
+        
+        function supprimerArticle(index) {
+          let panier = JSON.parse(localStorage.getItem('panier')) || [];
+          panier.splice(index, 1);
+          localStorage.setItem('panier', JSON.stringify(panier));
+          afficherPanier();
+        }
+        
+        function viderPanier() {
+          localStorage.removeItem('panier');
+          afficherPanier();
+        }
+        
+        function confirmerCommande() {
+            let nom = prompt("Veuillez entrer votre nom et prénom :");
+          let adresse = prompt("Veuillez entrer votre adresse :");
+          let telephone = prompt("Veuillez entrer votre numéro de téléphone :");
+          let email = prompt("Veuillez entrer votre e-mail :");
+          let modePaiement = prompt("Veuillez entrer votre mode de paiement (ex: carte, PayPal, etc.) :");
+        
+          if(nom && adresse && telephone && email && modePaiement) {
+            alert("Commande confirmée pour " + nom + " !");
+          } else {
+            alert("Veuillez remplir tous les champs pour confirmer votre commande.");
+          }
+        }
+        </script>
+</head>
+<body onload="afficherPanier()">
+    <header>
+        <h1>DRESS ROOM</h1>
+        <nav>
+          <ul>
+            <li><a href="acceuil.html">Accueil</a></li>
+          <li><a href="la boutique.html">La boutique</a></li>
+          <li><a href="panier.html">Panier</a></li>
+          <li><a href="contacts.html">Contact</a></li> 
+          </ul>
+        </nav>
+      </header><br><br><br><br><br><br><br><br>
+      <h2>Votre <span>Dress ROOM</span>  panier</h2>
+<ul id="listePanier">
+</ul>
+
+<h1 id="prixTotal">Total : 0dh</h1> 
+
+<button id="boutonConfirmer" style="display: none;" onclick="confirmerCommande()">Confirmer la commande</button>
+<button id="boutonVider" style="display: none;" onclick="viderPanier()">Vider le panier</button>
+
+
+      <footer>
+        <div>&copy; 2024 Dress ROOM une Boutique de Vêtements. Tous droits réservés.</div>
+      </footer>
+    
+</body>
+</html>

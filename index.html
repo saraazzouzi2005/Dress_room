@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <style>
+      body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  
+}
+       header {
+  background-color: #333;
+  color: #fff; 
+  padding: 20px;
+  height: 120px;
+ position: fixed;
+  width: 100%;
+  top: 0;
+  
+}
+
+ul {
+  list-style-type: none; /* Supprime les puces de la liste */
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Permet de gérer le débordement des éléments */
+}
+
+li {
+  float: left; /* Aligne les éléments horizontalement */
+  margin-left: 250px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px; /* Espacement entre les éléments */
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #333; /* Couleur de fond au survol */
+}
+h1{
+    text-align: center;
+}
+img{
+    width: 1500px;
+    height: 500px;
+}
+h2{
+    color: red;
+}
+#prop{
+    background-color: #333;
+    color: aliceblue;
+    height: auto;
+    text-align: center;
+    
+}
+div{
+    text-align: center;
+    background-color: #333;
+    color: aliceblue;
+    
+
+}
+.section-contact {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+}
+.section-contact h2 {
+  margin-bottom: 15px;
+}
+.section-contact a {
+  display: inline-block;
+  margin: 0 10px;
+}
+/* CSS existant */
+/* ... */
+
+/* Requêtes média pour les tablettes */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    position: static;
+  }
+  ul {
+    padding: 0;
+    text-align: center;
+  }
+  li {
+    float: none;
+    margin-left: 0;
+    display: inline-block;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  #prop {
+    margin-bottom: 20px; /* Ajoute une marge en bas du paragraphe */
+  }
+}
+
+/* Requêtes média pour les téléphones mobiles */
+@media (max-width: 480px) {
+  .section-contact h2 {
+    font-size: 1.5em;
+  }
+  .section-contact a {
+    padding: 10px;
+    font-size: 1.2em;
+  }
+  #prop {
+    padding: 10px;
+    margin-bottom: 20px; /* Assure que la marge est présente aussi pour les mobiles */
+  }
+}
+footer {
+  padding: 20px 0; /* Ajoute un padding vertical pour le footer */
+}
+
+    </style>
+</head>
+<body>
+  <header>
+    <h1>DRESS ROOM</h1>
+    <nav>
+      <ul>
+        <li><a href="acceuil.html">Accueil</a></li>
+      <li><a href="la boutique.html">La boutique</a></li>
+      <li><a href="panier.html">Panier</a></li>
+      <li><a href="contacts.html">Contact</a></li> 
+      </ul>
+    </nav>
+  </header><br><br><br><br><br><br><br><br>
+      <section id="home">
+        <img src="dress.jpg" alt="logo"><br>
+        <h2>A propos de nous :</h2>
+        <p id="prop">Bienvenue chez Dress Rom, votre destination ultime pour l'élégance électronique. notre boutique offre une expérience de shopping unique où la technologie et la mode se rencontrent harmonieusement. Dès que vous franchissez nos portes, vous êtes accueillie par un mélange envoûtant de lumières tamisées et d'écrans haute résolution diffusant les dernières tendances en matière de vêtements électroniques pour femmes.
+
+            Parcourez nos rayons et découvrez une gamme sensationnelle de vêtements intelligents conçus pour sublimer votre style tout en restant connectée au monde numérique qui nous entoure. Des robes lumineuses aux chemisiers interactifs, chaque pièce est soigneusement sélectionnée pour sa qualité, son design avant-gardiste et ses fonctionnalités innovantes.
+            
+            Nos conseillers mode, formés pour allier expertise en technologie et sensibilité esthétique, sont à votre disposition pour vous guider dans votre recherche de l'ensemble parfait. Que vous cherchiez une tenue pour une soirée glamour ou pour une journée décontractée en ville, nous avons ce qu'il vous faut.
+            
+            En tant que pionnier dans le domaine de la mode électronique, Dress Rom s'engage à offrir à ses clientes une expérience shopping inoubliable. Rejoignez-nous dès aujourd'hui et laissez-vous emporter par le mariage magique de la mode et de la technologie chez Dress Rom.</p>
+      </section>
+
+      <footer>
+        <div class="section-contact">
+          <h2>Nos Contacts</h2>
+          <p><strong>Téléphone :</strong> +212 658152307</p>
+          <p><strong>Adresse :</strong> 123 Avenue Mohammed V, Rabat, Maroc</p>
+          <h2>Suivez-nous</h2>
+          <a href="https://www.instagram.com/azzouzi.sara" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/Sara Azzouzi" target="_blank">Facebook</a>
+        </div>
+        <div>&copy; 2024 DRESS ROOM une Boutique de Vêtements. Tous droits réservés.</div>
+      </footer>
+    
+</body>
+</html>
